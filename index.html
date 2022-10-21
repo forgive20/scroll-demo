@@ -47,7 +47,7 @@
 </div>
 
 <script>
-  window.onscroll = function () {
+  const scrollChanged = () => {
     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
     const viewportHeight = document.documentElement.clientHeight
     const containerHeight = document.querySelector('.container').getBoundingClientRect().height
@@ -56,6 +56,9 @@
 
     arrow.style.rotate = `${ratio * 360}deg`
   }
+
+  document.addEventListener('scroll', scrollChanged)
+  document.addEventListener('touchmove', scrollChanged)
 </script>
 </body>
 </html>

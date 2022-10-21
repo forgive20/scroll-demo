@@ -37,10 +37,17 @@
       margin: 0 auto;
       transform-origin: bottom center;
     }
+
+    .text {
+      color: #333;
+      font-size: 40px;
+      position: fixed;
+    }
   </style>
 </head>
 <body>
 <div class="container">
+  <div class="text"></div>
   <div class="circle">
     <div class="arrow"></div>
   </div>
@@ -48,13 +55,16 @@
 
 <script>
   const scrollChanged = () => {
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
     const viewportHeight = document.documentElement.clientHeight
     const containerHeight = document.querySelector('.container').getBoundingClientRect().height
     const arrow = document.querySelector('.arrow')
     const ratio = scrollTop / (containerHeight - viewportHeight)
 
     arrow.style.rotate = `${ratio * 360}deg`
+
+    const text = document.querySelector('.text')
+    text.innerText = scrollTop
   }
 
   document.addEventListener('scroll', scrollChanged)

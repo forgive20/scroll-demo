@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Scroll - Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 100%;
+      height: 2000px;
+      background: #e26538;
+    }
+
+    .circle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 2px solid #c3272b;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, .6);
+      box-shadow: 0 0 10px #c3272b;
+    }
+
+    .arrow {
+      width: 3px;
+      height: 75px;
+      background: #c3272b;
+      margin: 0 auto;
+      transform-origin: bottom center;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="circle">
+    <div class="arrow"></div>
+  </div>
+</div>
+
+<script>
+  window.onscroll = function () {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+    const viewportHeight = document.documentElement.clientHeight
+    const containerHeight = document.querySelector('.container').getBoundingClientRect().height
+    const arrow = document.querySelector('.arrow')
+    const ratio = scrollTop / (containerHeight - viewportHeight)
+
+    arrow.style.rotate = `${ratio * 360}deg`
+  }
+</script>
+</body>
+</html>

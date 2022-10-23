@@ -61,10 +61,10 @@
     const arrow = document.querySelector('.arrow')
     const ratio = scrollTop / (containerHeight - viewportHeight)
 
-    arrow.style.rotate = `${ratio * 360}deg`
+    arrow.style.transform = `rotate(${ratio * 360}deg)`
 
     const text = document.querySelector('.text')
-    text.innerText = arrow.style.rotate
+    text.innerText = arrow.style.transform
   }
 
   document.addEventListener('scroll', scrollChanged)

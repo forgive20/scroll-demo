@@ -15,7 +15,7 @@
     .container {
       width: 100%;
       height: 2000px;
-      background: #e26538;
+      background: linear-gradient(to bottom, #a78e44, #1685a9);
     }
 
     .circle {
@@ -26,7 +26,7 @@
       position: fixed;
       top: 20px;
       right: 20px;
-      background: rgba(255, 255, 255, .6);
+      background: rgba(255, 255, 255, .2);
       box-shadow: 0 0 10px #c3272b;
     }
 
@@ -47,8 +47,8 @@
 </div>
 
 <script>
-  const scrollChanged = () => {
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
+  const onScrollChanged = () => {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
     const viewportHeight = document.documentElement.clientHeight
     const containerHeight = document.querySelector('.container').getBoundingClientRect().height
     const arrow = document.querySelector('.arrow')
@@ -57,7 +57,7 @@
     arrow.style.transform = `rotate(${ratio * 360}deg)`
   }
 
-  document.addEventListener('scroll', scrollChanged)
+  document.addEventListener('scroll', onScrollChanged)
 </script>
 </body>
 </html>
